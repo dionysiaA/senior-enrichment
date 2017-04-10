@@ -11,12 +11,25 @@ console.log(chalk.yellow(`Opening database connection to ${connectionString}`));
 
 // create the database instance that can be used in other database files
 const db = module.exports = new Sequelize(connectionString, {
-  logging: debug, // export DEBUG=sql in the environment to get SQL queries 
+  define: { underscored: true},
+  logging: debug, // export DEBUG=sql in the environment to get SQL queries
   native: true    // lets Sequelize know we can use pg-native for ~30% more speed (if you have issues with pg-native feel free to take this out and work it back in later when we have time to help)
 });
 
 // run our models file (makes all associations for our Sequelize objects)
-require('./models')
+// require('./models')
+const Campus = require('./models/campus');
+const Student = require('./models/student');
+
+//create associations
+Campus.hasMany(Student, {
+  foreignKey: 'campus_id',
+  onDelete: 'cascade', // remove all associated students
+  hooks: true // makes the cascade actually work. Yay Sequelize!
+});
+
+Student.belongsTo(Campus, {as: 'campus'});
+
 
 // sync the db, creating it if necessary
 function sync(force=false, retries=0, maxRetries=5) {
@@ -41,4 +54,4 @@ function sync(force=false, retries=0, maxRetries=5) {
   })
 }
 
-db.didSync = sync();
+// db.didSync = sync();
