@@ -18,7 +18,9 @@ router.param('id', function (req, res, next, id) {
 });
 
 router.get('/', function (req, res, next) {
-  Student.findAll({})
+  Student.findAll({
+    include: [{ model: Campus, as: 'campus' }]
+  })
   .then(function (users) {
     res.json(users);
   })

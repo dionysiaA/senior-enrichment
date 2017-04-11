@@ -1,0 +1,78 @@
+html {
+    background-color: #f8f8f8; }
+
+body {
+    background: repeating-linear-gradient(45deg, #e3e3e3 0px, #e3e3e3 10px, #ccc 1px, #ccc 11px); }
+
+a, span, h1, h2, h3, h4, h5, h6, div {
+    font-family: 'Verdana'; }
+
+/*select {*/
+    /*-webkit-appearance: menulist-button;*/
+    /*background-color: transparent;*/
+    /*border: none;*/
+    /*margin-left: -8px;*/
+/*}*/
+/*select:invalid {*/
+    /*color: #aaa;*/
+/*}*/
+/*select:invalid:hover {*/
+    /*color: #bbb;*/
+/*}*/
+body {
+    padding-top: 10px;
+    min-height: 100vh;
+}
+
+.campus-item {
+    margin-bottom: 30px;
+}
+
+img.campus {
+    width: 95%;
+}
+
+navbar .navbar-brand {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.navbar .navbar-brand img {
+    height: 250%;
+}
+
+.navbar-static-top {
+    min-height: 80px;
+}
+.navbar-nav > li > a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 80px;
+    text-decoration: ThreeDLightShadow;
+}
+
+@media (max-width: 767px) {
+    .navbar-nav > li > a {
+        line-height: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+}

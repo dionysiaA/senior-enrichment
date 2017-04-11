@@ -5,7 +5,8 @@ var db = require('../index.js')
 
 module.exports = db.define('campus', {
   name: Sequelize.STRING,
-  //link to the image
+  description: Sequelize.TEXT,
+  location: Sequelize.STRING,
   image: {
     //link to the image
     type: Sequelize.STRING,

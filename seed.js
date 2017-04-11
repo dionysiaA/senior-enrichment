@@ -34,10 +34,11 @@ function randPhoto (gender) {
 
 function randCampus () {
   let name = faker.lorem.word();
-  console.log('name Campus', name)
   return Campus.build({
     name: name,
-    image: faker.image.nature()
+    image: faker.image.nature(),
+    description: faker.lorem.text(),
+    location: faker.address.streetAddress()
   });
 }
 
@@ -45,9 +46,9 @@ function randStudent (createdCampuses) {
   var campus = chance.pick(createdCampuses);
   var gender = chance.gender();
   let name = `${chance.first({gender: gender})} ${chance.last()}`
-  console.log('name Student', name)
   return Student.build({
     name: name,
+    profile_picture: faker.image.avatar(),
     email: emails.pop(),
     campus_id: campus.id
   });
