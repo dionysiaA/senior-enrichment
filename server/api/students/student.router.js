@@ -46,6 +46,14 @@ router.get('/:id', function (req, res, next) {
 router.put('/:id', function (req, res, next) {
   req.requestedStudent.reload(Student.options.scopes.populated())
   .then(function (requestedStudentInclCampus){
+    //making sure the campus is updated if only the campus_id is provided
+    if(req.body.campus_id) {
+      Campus.findById(req.body.campus_id)
+        .then(function (campus) {
+          if (!campus) throw HttpError(404);
+          requestedStudentInclCampus.campus = campus;
+        })
+    }
     return requestedStudentInclCampus.update(req.body)
   })
   .then(function (updatedStudentCampus) {
