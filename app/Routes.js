@@ -5,6 +5,7 @@ import Root from './components/Root';
 import Campuses from './components/Campuses';
 import Campus from './components/Campus';
 import Students from './components/Students';
+import tempTable from './components/tempTable';
 import Student from './components/Student';
 
 import { fetchCampuses, fetchCampus } from './reducers/campuses';
@@ -18,7 +19,7 @@ const Routes = ({ fetchInitialData, onStudentEnter, onCampusEnter }) => (
       <IndexRoute component={Campuses} />
       <Route path="campuses" component={Campuses} />
       <Route path="campuses/:id" component={Campus} onEnter={onCampusEnter} />
-      <Route path="students" component={Students} />
+      <Route path="students" component={tempTable} />
       <Route path="students/:id" component={Student} onEnter={onStudentEnter} />
       <Route path="*" component={Campuses} />
     </Route>

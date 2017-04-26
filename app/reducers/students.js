@@ -27,7 +27,7 @@ export default function reducer (students = [], action) {
       return [action.student, ...students];
 
     case REMOVE:
-      return students.filter(student => student.id !== student.id);
+      return students.filter(student => student.id !== action.id);
 
     case REMOVE_CAMPUS:
       return students.filter(student => student.campus_id !== action.id);

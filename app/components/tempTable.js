@@ -5,7 +5,7 @@ import { addStudent, updateStudent, removeStudent } from '../reducers/students'
 
 /* -----------------    COMPONENT     ------------------ */
 
-class Student extends React.Component {
+class Students extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,6 +14,15 @@ class Student extends React.Component {
 
     this.handleEdit = this.handleEdit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleEdit (e, studentId) {
+
+  }
+
+  handleDelete(e, studentId) {
+    e.stopPropagation();
+    this.props.removeStudent(studentId);
   }
 
   render() {
@@ -41,5 +50,5 @@ const mapState = ({ campuses, students }) => ({ campuses, students  });
 
 const mapDispatch = { addStudent, updateStudent, removeStudent };
 
-export default connect(mapState, mapDispatch)(Student);
+export default connect(mapState, mapDispatch)(Students);
 

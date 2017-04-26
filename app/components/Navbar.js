@@ -6,9 +6,20 @@ import { Link } from 'react-router';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      activeTab: 'campuses'
+    }
+    this.handleNavTabSwitch = this.handleNavTabSwitch.bind(this)
+  }
+
+  handleNavTabSwitch (e, itemId) {
+    this.setState( { activeTab: itemId } );
   }
 
   render() {
+    // pull in the router context
+    console.log(this, 'here is the router')
     return (
     <nav role="navigation" className="navbar navbar-default navbar-static-top">
       <div className="container">
@@ -24,10 +35,16 @@ class Navbar extends React.Component {
 
         <div id="navbarCollapse" className="collapse navbar-collapse">
           <ul className="nav navbar-nav">
+            {/*
+             onClick={this.handleNavTabSwitch(null, 'campuses')}
+             onClick={this.handleNavTabSwitch(null, 'students')}
+            className="active" onClick={} <li><Link to="/about" activeStyle={{ color: 'red' }}>About</Link></li>*/}
+            {/* className={(this.state.activeTab === "campuses") ? "active" : ""}*/}
+            {/*className={(this.state.activeTab === "students") ? "active" : ""}*/}
             <li className="active">
               <Link to="/campuses" activeClassName="active"><strong>Campuses</strong></Link>
             </li>
-            <li>
+            <li >
               <Link to="/students" activeClassName="active"><strong>Students</strong></Link>
             </li>
           </ul>
